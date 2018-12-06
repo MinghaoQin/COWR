@@ -23,5 +23,7 @@
         android:layout_alignStart="@+id/defaultbtn"
         android:layout_below="@+id/defaultbtn"
         android:layout_marginTop="35dp"
+        android:onClick="startCustom"
+
         android:text="Custom"/>
 </android.widget.RelativeLayout>

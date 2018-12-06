@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:gravity="center_horizontal"
+
+    android:layout_margin="0dp"
+
+    android:layout_height="match_parent">
+
+
+    <Button
+
+        android:id="@+id/take_image_from_camera"
+
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+
+        android:onClick="takeImageFromCamera"
+
+        android:text="Take Photo From Camera" />
+
+
+    <ImageView
+
+        android:id="@+id/image_from_camera"
+
+        android:layout_width="192dp"
+
+
+        android:layout_height="171dp"
+
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary" />
+
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="155dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/warm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/hot" />
+
+        <RadioButton
+            android:id="@+id/hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/warm" />
+
+        <RadioButton
+            android:id="@+id/cold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/cold" />
+
+        <RadioButton
+            android:id="@+id/freezing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/freezing" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="SaveClothing"
+        android:text="Save Clothing" />
+
+    <Button
+        android:id="@+id/myclothes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="MyClothes"
+        android:text="My Clothes" />
+
+
+</LinearLayout>

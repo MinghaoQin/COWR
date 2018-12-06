@@ -18,4 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent= new Intent(this,DefaultActivity.class);
         startActivity(intent);
     }
+    public void startCustom(View v){
+        Intent intent2= new Intent(MainActivity.this,CustomActivity.class);
+        startActivity(intent2);
+    }
 }
