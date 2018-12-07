@@ -1,11 +1,18 @@
 package com.minghaoqin.q.cowr;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,6 +28,9 @@ import org.json.JSONObject;
 public class DefaultActivity extends AppCompatActivity {
 
     RelativeLayout mRelativeLayout;
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
     TextView mintempTxt,maxtempTxt,condtionsTxt;
     ImageView wear;
     RequestQueue queue;
@@ -34,7 +44,31 @@ public class DefaultActivity extends AppCompatActivity {
         mintempTxt=findViewById(R.id.mintempTxt);
         maxtempTxt=findViewById(R.id.maxtempTxt);
         condtionsTxt=findViewById(R.id.conditionsTxt);
-        mRelativeLayout=findViewById(R.id.relativelayout);
+        //mRelativeLayout=findViewById(R.id.relativelayout);
+        Preference.getInstance().Initialize(getApplicationContext());
+        dl = findViewById(R.id.drawerLayout);
+        t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
+        dl.addDrawerListener(t);
+        t.syncState();
+        t.setDrawerIndicatorEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        nv = (NavigationView)findViewById(R.id.nav_view);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch(id)
+                {
+                    case R.id.temp_settings:
+                        //Toast.makeText(DefaultActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(), TempConfigureActivity.class);
+                        startActivity(i);
+                    default:
+                        return true;
+                }
+            }
+        });
+
         wear= findViewById(R.id.weardefault);
         queue = Volley.newRequestQueue(this);
         getWeather();
@@ -85,5 +119,13 @@ public class DefaultActivity extends AppCompatActivity {
         }
         );
         queue.add(request);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(t.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
     }
 }

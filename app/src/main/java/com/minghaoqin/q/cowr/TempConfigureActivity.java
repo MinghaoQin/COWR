@@ -1,9 +1,12 @@
 package com.minghaoqin.q.cowr;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -83,5 +86,7 @@ public class TempConfigureActivity extends AppCompatActivity {
         p.writePreferenceInt("Warm", temp_slider.getThumb(2).getValue());
 
         p.writePreferenceInt("Hot", temp_slider.getThumb(3).getValue());
+
+        finish();
     }
 }
