@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void startCustom(View v){
-        Intent intent2= new Intent(MainActivity.this,CustomActivity.class);
+        Intent intent2= new Intent(MainActivity.this,CustomRec.class);
         startActivity(intent2);
     }
 }

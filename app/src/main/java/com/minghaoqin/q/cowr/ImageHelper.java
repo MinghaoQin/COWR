@@ -25,6 +25,9 @@ public class ImageHelper extends SQLiteOpenHelper {
     public Cursor getAll() {
         return(getReadableDatabase().rawQuery("SELECT imageblob,type FROM Image",null));
     }
+    public Cursor getRec(String weather){
+        return(getReadableDatabase().rawQuery("SELECT imageblob FROM Image WHERE type = ?",new String[] { String.valueOf(weather) }));
+    }
     public void insert(byte[] bytes, String type)
     {
         ContentValues cv=new ContentValues();

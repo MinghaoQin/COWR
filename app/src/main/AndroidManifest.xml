@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".listview">
         </activity>
+        <activity android:name=".CustomRec">
+        </activity>
     </application>
 
 </manifest>
