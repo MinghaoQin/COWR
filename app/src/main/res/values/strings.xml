@@ -9,4 +9,7 @@
     <string name="cold">Colddd</string>
     <string name="freezing">Super Chillly</string>
     <string name="title_activity_listview">listview</string>
+    <string name="_100_f"><![CDATA[>100°F]]></string>
+    <string name="_0_f"><![CDATA[<0°F]]></string>
+    <string name="freez">Freezing</string>
 </resources>

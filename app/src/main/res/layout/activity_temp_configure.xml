@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TempConfigureActivity">
+
+    <io.apptik.widget.MultiSlider
+        android:id="@+id/temp_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="247dp"
+        android:rotation="270"
+        app:drawThumbsApart="false"
+        app:stepsThumbsApart="5"
+        app:thumbNumber="5"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <TextView
+        android:id="@+id/textHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginBottom="440dp"
+        android:text="@string/_100_f" />
+
+    <TextView
+        android:id="@+id/textLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="188dp"
+        android:layout_marginTop="451dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="41dp"
+        android:text="@string/_0_f" />
+
+    <TextView
+        android:id="@+id/textHot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="272dp"
+        android:text="Hot" />
+
+    <TextView
+        android:id="@+id/textWarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="201dp"
+        android:layout_marginEnd="265dp"
+        android:text="Warm" />
+
+    <TextView
+        android:id="@+id/textCold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="267dp"
+        android:text="Cold" />
+
+    <TextView
+        android:id="@+id/textFreezing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="367dp"
+        android:layout_marginEnd="252dp"
+        android:text="@string/freez" />
+
+    <TextView
+        android:id="@+id/textTemp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="354dp"
+        android:layout_marginEnd="119dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textTemp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="245dp"
+        android:layout_marginEnd="125dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textTemp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="117dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/buttonConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="444dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="-30dp"
+        android:text="Confirm"
+        android:onClick="confirm"/>
+
+</android.widget.RelativeLayout>
