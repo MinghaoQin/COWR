@@ -75,8 +75,20 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     public void startCustom(View v){
-        Intent intent2= new Intent(MainActivity.this,CustomRec.class);
+        Intent intent0 = new Intent(this, DefaultActivity.class);
+        intent0.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Intent intent1 = new Intent(this,CustomActivity.class);
+        intent1.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Intent intent2 = new Intent(this,TempConfigureActivity.class);
+        //intent2.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        Preference.getInstance().writePreferenceInt("Hot", 75); //set default temp settings
+        Preference.getInstance().writePreferenceInt("Warm", 50);
+        Preference.getInstance().writePreferenceInt("Cold", 32);
+        Preference.getInstance().writePreferenceInt("Start", 1); //declare app has been setup
+        startActivity(intent0);
+        startActivity(intent1);
         startActivity(intent2);
+        finish();
     }
     public void checkLocation(){
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
