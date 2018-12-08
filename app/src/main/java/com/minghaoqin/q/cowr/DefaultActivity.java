@@ -1,6 +1,9 @@
 package com.minghaoqin.q.cowr;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -29,6 +32,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.Random;
+
 public class DefaultActivity extends AppCompatActivity {
 
     RelativeLayout mRelativeLayout;
@@ -36,11 +43,12 @@ public class DefaultActivity extends AppCompatActivity {
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     TextView mintempTxt,maxtempTxt,condtionsTxt,locationTxt;
+    String weather;
     ImageView wear,weathimg;
     RequestQueue queue;
     Double temp_min,temp_max;
     Switch notificationsw;
-
+    ImageHelper myDb = new ImageHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,16 +141,17 @@ public class DefaultActivity extends AppCompatActivity {
                     mintempTxt.setText("Low Temperature: "+ temp_min_string + " °F");
                     maxtempTxt.setText("High Temperature: "+temp_max_string+ " °F");
                     condtionsTxt.setText(weather_condition);
-
+                    //make reccomendation call here
+                    makeRecommendation();
                    //basic testing of reccomendations
-                    if (temp_min>20)
+                    /*if (temp_min>20)
                     {
                         wear.setImageResource(R.drawable.winterjacket);
                     }
                     else
                     {
                         wear.setImageResource(R.drawable.hoodie);
-                    }
+                    }*/
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -183,6 +192,43 @@ public class DefaultActivity extends AppCompatActivity {
         toastMsg("Weather is up to date");
     }
 
+    public void makeRecommendation(){//called after getting weather data
+        int cold = Preference.getInstance().getPreferenceInt("Cold");
+        int warm = Preference.getInstance().getPreferenceInt("Warm");
+        int hot = Preference.getInstance().getPreferenceInt("Hot");
+        int temp = temp_min.intValue();
+        if (temp < cold) {
+            weather = "freezing";
+            wear.setImageResource(R.drawable.winterjacket);//set default value
+        } else if (temp >= cold & temp < warm) {
+            weather = "cold";
+            wear.setImageResource(R.drawable.hoodie);//set default value
+        } else if (temp >= warm & temp < hot) {
+            weather = "warm";
+            wear.setImageResource(R.drawable.longsleeveshirt);//set default value
+        } else if (temp >= hot) {
+            weather = "hot";
+            wear.setImageResource(R.drawable.tshirt);//set default value
+        }
+        final ArrayList<Bitmap> bitmap = new ArrayList<Bitmap>();
+        Cursor res = myDb.getRec(weather);
+        int i = 0;
+        Random r = new Random();
+
+        if (res.getCount() > 0) {
+
+            while (res.moveToNext()) {
+                byte[] data = res.getBlob(res.getColumnIndex("imageblob"));
+                ByteArrayInputStream imageStream = new ByteArrayInputStream(data);
+                Bitmap image = BitmapFactory.decodeStream(imageStream);
+                bitmap.add(image);
+                i++;
+
+            }
+            final int ll = r.nextInt(i );
+            wear.setImageBitmap(bitmap.get(ll));
+        }
+    }
     public void toastMsg(String msg) {
 
         Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
