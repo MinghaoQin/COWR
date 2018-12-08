@@ -110,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
                         //User says yes to this is the address
                         Preference p = Preference.getInstance();
                         p.writePreferenceFloat("Latitude", (float)loc.getLatitude());
-                        p.writePreferenceFloat("Latitude", (float)loc.getLongitude());
-                        p.writePreference("Address", finalAddresses.get(0).getLocality() + "," + finalAddresses.get(0).getAdminArea());
+                        p.writePreferenceFloat("Longitude", (float)loc.getLongitude());
+                        p.writePreference("Address", finalAddresses.get(0).getLocality() + ", " + finalAddresses.get(0).getAdminArea());
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
