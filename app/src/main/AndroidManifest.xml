@@ -3,6 +3,7 @@
     package="com.minghaoqin.q.cowr">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -18,11 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DefaultActivity"></activity>
-        <activity android:name=".CustomActivity"></activity>
-        <activity android:name=".listview"></activity>
-        <activity android:name=".CustomRec"></activity>
-        <activity android:name=".TempConfigureActivity"> </activity>
+        <activity android:name=".DefaultActivity" />
+        <activity android:name=".CustomActivity" />
+        <activity android:name=".listview" />
+        <activity android:name=".CustomRec" />
+        <activity android:name=".TempConfigureActivity"></activity>
+        <activity android:name=".LocationActivity"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBr5Fl4y81Vy9ZdJBTs7oh0-_sUSNb0Ntk"/>
     </application>
 
 </manifest>

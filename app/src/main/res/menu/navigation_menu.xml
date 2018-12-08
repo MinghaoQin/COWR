@@ -6,4 +6,9 @@
         android:icon="@mipmap/ic_launcher"
         android:title="Configure Temp" />
 
+    <item
+        android:id="@+id/loc_settings"
+        android:icon="@mipmap/ic_launcher"
+        android:title="Change Location" />
+
 </menu>

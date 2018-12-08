@@ -31,7 +31,7 @@ public class DefaultActivity extends AppCompatActivity {
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
     private NavigationView nv;
-    TextView mintempTxt,maxtempTxt,condtionsTxt;
+    TextView mintempTxt,maxtempTxt,condtionsTxt,locationTxt;
     ImageView wear;
     RequestQueue queue;
     Double temp_min,temp_max;
@@ -44,8 +44,10 @@ public class DefaultActivity extends AppCompatActivity {
         mintempTxt=findViewById(R.id.mintempTxt);
         maxtempTxt=findViewById(R.id.maxtempTxt);
         condtionsTxt=findViewById(R.id.conditionsTxt);
+        locationTxt=findViewById(R.id.locationText);
         //mRelativeLayout=findViewById(R.id.relativelayout);
-        Preference.getInstance().Initialize(getApplicationContext());
+        locationTxt.setText(Preference.getInstance().getPreference("Address"));
+
         dl = findViewById(R.id.drawerLayout);
         t = new ActionBarDrawerToggle(this, dl, R.string.Open, R.string.Close);
         dl.addDrawerListener(t);
@@ -63,9 +65,16 @@ public class DefaultActivity extends AppCompatActivity {
                         //Toast.makeText(DefaultActivity.this, "Settings",Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(getApplicationContext(), TempConfigureActivity.class);
                         startActivity(i);
+                        break;
+                    case R.id.loc_settings:
+                        //Toast.makeText(DefaultActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                        Intent i2 = new Intent(getApplicationContext(), LocationActivity.class);
+                        startActivity(i2);
+                        break;
                     default:
                         return true;
                 }
+                return true;
             }
         });
 
@@ -76,7 +85,10 @@ public class DefaultActivity extends AppCompatActivity {
     }
     public void getWeather()    //Json parsing of data from api
     {
-        String url= "http://api.openweathermap.org/data/2.5/weather?q=Piscataway&APPID=5a4bdedb13354853072b4ab26254c444"; //api request
+        float lat = Preference.getInstance().getPreferenceFloat("Latitude");
+        float lon = Preference.getInstance().getPreferenceFloat("Longitude");
+        String url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=5a4bdedb13354853072b4ab26254c444";
+        //String url= "http://api.openweathermap.org/data/2.5/weather?q=Piscataway&APPID=5a4bdedb13354853072b4ab26254c444"; //api request
         JsonObjectRequest request= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response)
@@ -127,5 +139,11 @@ public class DefaultActivity extends AppCompatActivity {
             return true;
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        locationTxt.setText(Preference.getInstance().getPreference("Address"));
+        getWeather();
     }
 }

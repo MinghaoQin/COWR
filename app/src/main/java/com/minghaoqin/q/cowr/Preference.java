@@ -33,4 +33,18 @@ public class Preference {
         e.putInt(key, value);
         e.commit();
     }
+    public void writePreferenceFloat(String key, float value){
+        SharedPreferences.Editor e = mMyPreferences.edit();
+        e.putFloat(key, value);
+        e.commit();
+    }
+    public String getPreference(String key) {
+        return mMyPreferences.getString(key, "N/A");
+    }
+    public int getPreferenceInt(String key) {
+        return mMyPreferences.getInt(key, 0);
+    }
+    public float getPreferenceFloat(String key) {
+        return mMyPreferences.getFloat(key, 0);
+    }
 }
