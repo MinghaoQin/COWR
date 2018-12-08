@@ -29,16 +29,16 @@
 
     <TextView
         android:id="@+id/textHigh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="23dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="184dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginBottom="440dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="436dp"
         android:text="@string/_100_f" />
 
     <TextView
@@ -62,7 +62,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="121dp"
-        android:layout_marginEnd="272dp"
+        android:layout_marginEnd="270dp"
         android:text="Hot" />
 
     <TextView
@@ -72,7 +72,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="201dp"
-        android:layout_marginEnd="265dp"
+        android:layout_marginEnd="270dp"
         android:text="Warm" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="293dp"
-        android:layout_marginEnd="267dp"
+        android:layout_marginEnd="270dp"
         android:text="Cold" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="367dp"
-        android:layout_marginEnd="252dp"
+        android:layout_marginEnd="270dp"
         android:text="@string/freez" />
 
     <TextView
@@ -102,7 +102,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="354dp"
-        android:layout_marginEnd="119dp"
+        android:layout_marginEnd="120dp"
         android:text="TextView" />
 
     <TextView
@@ -112,7 +112,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="245dp"
-        android:layout_marginEnd="125dp"
+        android:layout_marginEnd="120dp"
         android:text="TextView" />
 
     <TextView
@@ -122,7 +122,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="161dp"
-        android:layout_marginEnd="117dp"
+        android:layout_marginEnd="120dp"
         android:text="TextView" />
 
     <Button

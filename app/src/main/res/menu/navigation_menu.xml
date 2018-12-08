@@ -10,5 +10,9 @@
         android:id="@+id/loc_settings"
         android:icon="@mipmap/ic_launcher"
         android:title="Change Location" />
+    <item
+        android:id="@+id/clothes_settings"
+        android:icon="@mipmap/ic_launcher"
+        android:title="Customize Clothing" />
 
 </menu>

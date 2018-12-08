@@ -77,6 +77,11 @@ public class DefaultActivity extends AppCompatActivity {
                         Intent i2 = new Intent(getApplicationContext(), LocationActivity.class);
                         startActivity(i2);
                         break;
+                    case R.id.clothes_settings:
+                        //Toast.makeText(DefaultActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                        Intent i3 = new Intent(getApplicationContext(), CustomActivity.class);
+                        startActivity(i3);
+                        break;
                     default:
                         return true;
                 }
