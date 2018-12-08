@@ -31,10 +31,10 @@ public class TempConfigureActivity extends AppCompatActivity {
         temp_slider = (MultiSlider) findViewById(R.id.temp_slider);
         temp_slider.getThumb(4).setInvisibleThumb(true);
         temp_slider.getThumb(0).setInvisibleThumb(true);
-
-        temp_slider.getThumb(1).setValue(25);
-        temp_slider.getThumb(2).setValue(50);
-        temp_slider.getThumb(3).setValue(74);
+        Preference p = Preference.getInstance();
+        temp_slider.getThumb(1).setValue(p.getPreferenceInt("Cold"));
+        temp_slider.getThumb(2).setValue(p.getPreferenceInt("Warm"));
+        temp_slider.getThumb(3).setValue(p.getPreferenceInt("Hot"));
 
 
         temp_slider.getThumb(4).setRange(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{0xfff6ee19, 0xffff0000}));
@@ -87,6 +87,7 @@ public class TempConfigureActivity extends AppCompatActivity {
 
         p.writePreferenceInt("Hot", temp_slider.getThumb(3).getValue());
 
+        Toast.makeText(getBaseContext(), "Temperature settings changed", Toast.LENGTH_LONG).show();
         finish();
     }
 }

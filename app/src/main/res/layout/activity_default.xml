@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="62dp"
         android:text="TextView" />
 
     <ImageView
@@ -53,8 +53,18 @@
         android:layout_height="200dp"
         android:layout_below="@+id/conditionsTxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
-        app:srcCompat="@android:color/background_light"/>
+        android:layout_marginTop="104dp"
+        app:srcCompat="@android:color/background_light" />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="62dp"
+        android:layout_height="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="50dp"
+        app:srcCompat="@android:color/background_light" />
 
     <Switch
         android:id="@+id/notificationswitch"

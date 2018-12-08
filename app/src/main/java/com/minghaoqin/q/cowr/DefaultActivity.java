@@ -1,6 +1,7 @@
 package com.minghaoqin.q.cowr;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +36,7 @@ public class DefaultActivity extends AppCompatActivity {
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     TextView mintempTxt,maxtempTxt,condtionsTxt,locationTxt;
-    ImageView wear;
+    ImageView wear,weathimg;
     RequestQueue queue;
     Double temp_min,temp_max;
     Switch notificationsw;
@@ -93,7 +95,7 @@ public class DefaultActivity extends AppCompatActivity {
             }
         });
 
-
+        weathimg = (ImageView)findViewById(R.id.weatherIcon);
         wear= findViewById(R.id.weardefault);
         queue = Volley.newRequestQueue(this);
         getWeather();
@@ -113,13 +115,16 @@ public class DefaultActivity extends AppCompatActivity {
                     JSONObject main_object=response.getJSONObject("main");
                     JSONArray weather=response.getJSONArray("weather");
                     JSONObject weather_main= weather.getJSONObject(0);
-                    String temp_min_string,temp_max_string,weather_condition;
+                    String temp_min_string,temp_max_string,weather_condition,weather_icon;
                      temp_min=(Double.parseDouble(main_object.getString("temp_min"))-273.15)*9/5+32;
                      temp_max=(Double.parseDouble(main_object.getString("temp_max"))-273.15)*9/5+32;
 
                     temp_min_string=String.format("%.2f",(temp_min));
                     temp_max_string=String.format("%.2f",(temp_max));
                     weather_condition=weather_main.getString("main");
+                    weather_icon = weather_main.getString("icon");
+                    Toast.makeText(getBaseContext(),weather_icon,Toast.LENGTH_LONG).show();
+                    Picasso.get().load("http://openweathermap.org/img/w/"+weather_icon+".png").into(weathimg);
                     mintempTxt.setText("Low Temprature:"+temp_min_string);
                     maxtempTxt.setText("High Temprature:"+temp_max_string);
                     condtionsTxt.setText(weather_condition);
@@ -141,7 +146,7 @@ public class DefaultActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                mintempTxt.setText("Josn problems");
+                mintempTxt.setText("Json problems");
 
             }
         }
