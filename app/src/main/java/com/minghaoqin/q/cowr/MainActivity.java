@@ -34,7 +34,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Preference.getInstance().Initialize(getApplicationContext()); // intialize global preference here
-        checkLocationPermission();
+        if(Preference.getInstance().getPreferenceInt("Start") == 1){// Instantly start default view if already setup
+            Intent intent= new Intent(this,DefaultActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        if(!checkLocationPermission()){
+            return;
+        }
         if(!Preference.getInstance().getPreference("Address").equals("N/A")){
             return;
         }
@@ -61,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent= new Intent(this,DefaultActivity.class);
         startActivity(intent);
+        Preference.getInstance().writePreferenceInt("Hot", 75); //set default temp settings
+        Preference.getInstance().writePreferenceInt("Warm", 50);
+        Preference.getInstance().writePreferenceInt("Cold", 32);
+        Preference.getInstance().writePreferenceInt("Start", 1); //declare app has been setup
+        finish();
     }
     public void startCustom(View v){
         Intent intent2= new Intent(MainActivity.this,CustomRec.class);
@@ -167,7 +179,24 @@ public class MainActivity extends AppCompatActivity {
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_COARSE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
-
+                        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+                        mFusedLocationClient.getLastLocation()
+                                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                                    @Override
+                                    public void onSuccess(Location location) {
+                                        // Got last known location. In some rare situations this can be null.
+                                        if (location != null) {
+                                            // Logic to handle location object
+                                            //Toast.makeText(getBaseContext(), location.toString(), Toast.LENGTH_LONG).show();
+                                            loc = location;
+                                            checkLocation();
+                                        }else {
+                                            Toast.makeText(getBaseContext(), "No last known location", Toast.LENGTH_LONG).show();
+                                            Intent i = new Intent(MainActivity.this, LocationActivity.class);
+                                            startActivity(i);
+                                        }
+                                    }
+                                });
                     }
 
                 } else {
