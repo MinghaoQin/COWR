@@ -42,4 +42,5 @@ public class ImageHelper extends SQLiteOpenHelper {
     {
         return(c.getBlob(1));
     }
+
 }

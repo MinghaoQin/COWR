@@ -124,14 +124,14 @@ public class DefaultActivity extends AppCompatActivity {
                      temp_min=(Double.parseDouble(main_object.getString("temp_min"))-273.15)*9/5+32;
                      temp_max=(Double.parseDouble(main_object.getString("temp_max"))-273.15)*9/5+32;
 
-                    temp_min_string=String.format("%.2f",(temp_min));
-                    temp_max_string=String.format("%.2f",(temp_max));
+                    temp_min_string = String.format("%.0f",(temp_min));
+                    temp_max_string = String.format("%.0f",(temp_max));
                     weather_condition=weather_main.getString("main");
                     weather_icon = weather_main.getString("icon");
                     //Toast.makeText(getBaseContext(),weather_icon,Toast.LENGTH_LONG).show();
                     Picasso.get().load("http://openweathermap.org/img/w/"+weather_icon+".png").into(weathimg);
-                    mintempTxt.setText("Low Temprature:"+temp_min_string);
-                    maxtempTxt.setText("High Temprature:"+temp_max_string);
+                    mintempTxt.setText("Low Temperature: "+ temp_min_string + " °F");
+                    maxtempTxt.setText("High Temperature: "+temp_max_string+ " °F");
                     condtionsTxt.setText(weather_condition);
 
                    //basic testing of reccomendations

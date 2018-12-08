@@ -19,6 +19,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -77,6 +78,16 @@ public class listview extends Activity {
                     imageArry);
             ListView dataList = (ListView) findViewById(R.id.list);
             dataList.setAdapter(adapter);
+
+
+            dataList.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+
+                    return true;
+                }
+            });
+
         }
     }
 }
