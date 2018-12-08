@@ -20,8 +20,8 @@ public class notificationService extends Service {
         Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_SHORT).show();
 
         Calendar calendar=Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY,4);
-        calendar.set(Calendar.MINUTE,31);
+        calendar.set(Calendar.HOUR_OF_DAY,16);
+        calendar.set(Calendar.MINUTE,3);
 
 
         Intent intent1=new Intent(getApplicationContext(),NotificationRec.class);

@@ -23,7 +23,7 @@ public class NotificationRec extends BroadcastReceiver {
         dintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100,dintent,PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder=new NotificationCompat.Builder(context);
-        builder.setContentIntent(pendingIntent).setSmallIcon(android.R.drawable.arrow_up_float).setAutoCancel(true).setContentTitle("Notification");
+        builder.setContentIntent(pendingIntent).setSmallIcon(android.R.drawable.arrow_up_float).setAutoCancel(true).setContentTitle("Clothes Recommendation").setContentText("Click to see today's recommendation");
 
         notificationManager.notify(100,builder.build());
 

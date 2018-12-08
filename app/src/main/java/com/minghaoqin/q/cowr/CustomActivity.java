@@ -1,6 +1,7 @@
 package com.minghaoqin.q.cowr;
 
 
+import android.app.Activity;
 import android.content.Intent;
 
 import android.database.Cursor;
@@ -65,7 +66,7 @@ public class CustomActivity extends AppCompatActivity {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
 
             mphoto = (Bitmap) data.getExtras().get("data");
-            mimageView.setRotation(90);
+           // mimageView.setRotation(90);
             mimageView.setImageBitmap(mphoto);
 
 
@@ -84,7 +85,11 @@ public class CustomActivity extends AppCompatActivity {
 
     public void SaveClothing(View view){
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-
+        if (mphoto==null)
+        {
+            Toast.makeText(getApplicationContext(),"Please take a picture to add it.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mphoto.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         switch(hello) {
@@ -105,7 +110,15 @@ public class CustomActivity extends AppCompatActivity {
                 if (checked)
                     myDb.insert(byteArray,"cold");
                 break;
+            default:
+                Toast.makeText(getApplicationContext(),"Please take select the temperature preference.", Toast.LENGTH_SHORT).show();
+                return;
+
+
         }
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     public void MyClothes(View view){
