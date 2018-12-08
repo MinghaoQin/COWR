@@ -44,16 +44,15 @@
         android:layout_height="155dp"
         android:gravity="center_vertical"
         android:orientation="vertical">
-
         <RadioButton
-            android:id="@+id/warm"
+            android:id="@+id/hot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
             android:text="@string/hot" />
 
         <RadioButton
-            android:id="@+id/hot"
+            android:id="@+id/warm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
