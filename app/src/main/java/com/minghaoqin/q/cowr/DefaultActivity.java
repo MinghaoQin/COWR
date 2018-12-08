@@ -123,7 +123,7 @@ public class DefaultActivity extends AppCompatActivity {
                     temp_max_string=String.format("%.2f",(temp_max));
                     weather_condition=weather_main.getString("main");
                     weather_icon = weather_main.getString("icon");
-                    Toast.makeText(getBaseContext(),weather_icon,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(),weather_icon,Toast.LENGTH_LONG).show();
                     Picasso.get().load("http://openweathermap.org/img/w/"+weather_icon+".png").into(weathimg);
                     mintempTxt.setText("Low Temprature:"+temp_min_string);
                     maxtempTxt.setText("High Temprature:"+temp_max_string);
@@ -146,7 +146,7 @@ public class DefaultActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error)
             {
-                mintempTxt.setText("Json problems");
+                mintempTxt.setText("Please Check Internet Connection");
 
             }
         }
@@ -166,5 +166,22 @@ public class DefaultActivity extends AppCompatActivity {
         super.onResume();
         locationTxt.setText(Preference.getInstance().getPreference("Address"));
         getWeather();
+    }
+
+    public void startRefresh(View v)
+    {
+        //Intent intent = getIntent();
+        //finish();
+        //startActivity(intent);'
+        locationTxt.setText(Preference.getInstance().getPreference("Address"));
+        getWeather();
+        toastMsg("Weather is up to date");
+    }
+
+    public void toastMsg(String msg) {
+
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
+        toast.show();
+
     }
 }
