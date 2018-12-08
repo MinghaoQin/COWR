@@ -7,105 +7,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-<RelativeLayout
 
-    android:id="@+id/relativeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <RelativeLayout
 
-    <TextView
-        android:id="@+id/mintempTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="17dp"
-        android:fontFamily="sans-serif"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        tools:context="com.minghaoqin.q.cowr.DefaultActivity" />
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient">
 
-    <TextView
-        android:id="@+id/maxtempTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mintempTxt"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="3dp"
-        android:fontFamily="sans-serif"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/conditionsTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/maxtempTxt"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="sans-serif"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        android:textSize="28sp" />
+        <TextView
+            android:id="@+id/mintempTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="sans-serif"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:context="com.minghaoqin.q.cowr.DefaultActivity" />
 
-    <TextView
-        android:id="@+id/locationText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/conditionsTxt"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="3dp"
-        android:fontFamily="sans-serif"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        <TextView
+            android:id="@+id/maxtempTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mintempTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/weardefault"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/conditionsTxt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp"
-        app:srcCompat="@android:color/background_light" />
+        <TextView
+            android:id="@+id/conditionsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/maxtempTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="28sp" />
 
-    <ImageView
-        android:id="@+id/weatherIcon"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="26dp"
-        app:srcCompat="@android:color/background_light" />
+        <TextView
+            android:id="@+id/locationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/conditionsTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:text="TextView"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
-    <Switch
-        android:id="@+id/notificationswitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/refreshbtn"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="42dp"
-        android:text="Notifications" />
+        <ImageView
+            android:id="@+id/weardefault"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/conditionsTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="74dp"
+            app:srcCompat="@android:color/background_light" />
 
-    <Button
-        android:id="@+id/refreshbtn"
-        android:layout_width="127dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="46dp"
-        android:onClick="startRefresh"
-        android:text="Refresh" />
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="62dp"
+            android:layout_height="61dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            app:srcCompat="@android:color/background_light" />
 
-</RelativeLayout>
+        <Switch
+            android:id="@+id/notificationswitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/refreshbtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="42dp"
+            android:text="Notifications" />
+
+        <Button
+            android:id="@+id/refreshbtn"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="46dp"
+            android:onClick="startRefresh"
+            android:text="Refresh" />
+
+
+    </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
