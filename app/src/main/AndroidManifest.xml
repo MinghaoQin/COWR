@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.minghaoqin.q.cowr">
+          package="com.minghaoqin.q.cowr">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.SET_ALARM"/>
 
     <application
         android:allowBackup="true"
@@ -14,20 +15,28 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DefaultActivity" />
-        <activity android:name=".CustomActivity" />
-        <activity android:name=".listview" />
-        <activity android:name=".CustomRec" />
-        <activity android:name=".TempConfigureActivity"></activity>
-        <activity android:name=".LocationActivity"></activity>
+        <activity android:name=".DefaultActivity"/>
+        <activity android:name=".CustomActivity"/>
+        <activity android:name=".listview"/>
+        <activity android:name=".CustomRec"/>
+        <activity android:name=".TempConfigureActivity"/>
+        <activity android:name=".LocationActivity"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBr5Fl4y81Vy9ZdJBTs7oh0-_sUSNb0Ntk"/>
+        <receiver android:name=".NotificationRec"/>
+
+        <service
+            android:name=".notificationService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
     </application>
 
 </manifest>

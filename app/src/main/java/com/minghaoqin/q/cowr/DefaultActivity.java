@@ -9,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class DefaultActivity extends AppCompatActivity {
     ImageView wear;
     RequestQueue queue;
     Double temp_min,temp_max;
+    Switch notificationsw;
 
 
     @Override
@@ -45,6 +48,7 @@ public class DefaultActivity extends AppCompatActivity {
         maxtempTxt=findViewById(R.id.maxtempTxt);
         condtionsTxt=findViewById(R.id.conditionsTxt);
         locationTxt=findViewById(R.id.locationText);
+        notificationsw=findViewById(R.id.notificationswitch);
         //mRelativeLayout=findViewById(R.id.relativelayout);
         locationTxt.setText(Preference.getInstance().getPreference("Address"));
 
@@ -77,6 +81,18 @@ public class DefaultActivity extends AppCompatActivity {
                 return true;
             }
         });
+        notificationsw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    Intent serviceIntent = new Intent(getApplicationContext(),notificationService.class);
+                    startService(serviceIntent);
+                }
+            }
+        });
+
 
         wear= findViewById(R.id.weardefault);
         queue = Volley.newRequestQueue(this);
