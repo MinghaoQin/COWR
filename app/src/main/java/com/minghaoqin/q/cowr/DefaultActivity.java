@@ -49,6 +49,8 @@ public class DefaultActivity extends AppCompatActivity {
     Double temp_min,temp_max;
     Switch notificationsw;
     ImageHelper myDb = new ImageHelper(this);
+    String temp_min_string,temp_max_string,weather_condition,weather_icon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +136,6 @@ public class DefaultActivity extends AppCompatActivity {
                     JSONObject main_object=response.getJSONObject("main");
                     JSONArray weather=response.getJSONArray("weather");
                     JSONObject weather_main= weather.getJSONObject(0);
-                    String temp_min_string,temp_max_string,weather_condition,weather_icon;
                      temp_min=(Double.parseDouble(main_object.getString("temp_min"))-273.15)*9/5+32;
                      temp_max=(Double.parseDouble(main_object.getString("temp_max"))-273.15)*9/5+32;
 
@@ -203,6 +204,10 @@ public class DefaultActivity extends AppCompatActivity {
         int warm = Preference.getInstance().getPreferenceInt("Warm");
         int hot = Preference.getInstance().getPreferenceInt("Hot");
         int temp = temp_min.intValue();
+        if (weather_condition=="Rain"||weather_condition=="Drizzle"||weather_condition=="Snow"||weather_condition=="Thunderstorm")
+        {
+            umbrella.setImageResource(R.drawable.umbrella);
+        }
         if (temp < cold) {
             weather = "freezing";
             wear.setImageResource(R.drawable.winterjacket);//set default value
