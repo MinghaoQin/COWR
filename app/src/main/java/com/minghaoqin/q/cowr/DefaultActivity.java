@@ -44,7 +44,7 @@ public class DefaultActivity extends AppCompatActivity {
     private NavigationView nv;
     TextView mintempTxt,maxtempTxt,condtionsTxt,locationTxt;
     String weather;
-    ImageView wear,weathimg;
+    ImageView wear,weathimg,extra,umbrella,wearbottom;
     RequestQueue queue;
     Double temp_min,temp_max;
     Switch notificationsw;
@@ -58,6 +58,12 @@ public class DefaultActivity extends AppCompatActivity {
         maxtempTxt=findViewById(R.id.maxtempTxt);
         condtionsTxt=findViewById(R.id.conditionsTxt);
         locationTxt=findViewById(R.id.locationText);
+        umbrella=findViewById(R.id.umbrellaimg);
+        extra=findViewById(R.id.extrasimg);
+        wearbottom=findViewById(R.id.bottomimg);
+
+
+
         notificationsw=findViewById(R.id.notificationswitch);
         //mRelativeLayout=findViewById(R.id.relativelayout);
         locationTxt.setText(Preference.getInstance().getPreference("Address"));
@@ -96,8 +102,8 @@ public class DefaultActivity extends AppCompatActivity {
                 return true;
             }
         });
-        notificationsw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
+        notificationsw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b)
@@ -200,15 +206,25 @@ public class DefaultActivity extends AppCompatActivity {
         if (temp < cold) {
             weather = "freezing";
             wear.setImageResource(R.drawable.winterjacket);//set default value
+            wearbottom.setImageResource(R.drawable.sweatpants);
+            extra.setImageResource(R.drawable.winterextras);
+
         } else if (temp >= cold & temp < warm) {
             weather = "cold";
             wear.setImageResource(R.drawable.hoodie);//set default value
+            wearbottom.setImageResource(R.drawable.jeans);
+
+
         } else if (temp >= warm & temp < hot) {
             weather = "warm";
             wear.setImageResource(R.drawable.longsleeveshirt);//set default value
+            wearbottom.setImageResource(R.drawable.jeans);
+
         } else if (temp >= hot) {
             weather = "hot";
             wear.setImageResource(R.drawable.tshirt);//set default value
+            wearbottom.setImageResource(R.drawable.shorts);
+
         }
         final ArrayList<Bitmap> bitmap = new ArrayList<Bitmap>();
         Cursor res = myDb.getRec(weather);

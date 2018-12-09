@@ -10,7 +10,6 @@
 
     <RelativeLayout
 
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient">
@@ -28,65 +27,64 @@
             android:text="TextView"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            tools:context="com.minghaoqin.q.cowr.DefaultActivity" />
+            tools:context="com.minghaoqin.q.cowr.DefaultActivity"/>
 
         <TextView
             android:id="@+id/maxtempTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mintempTxt"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/mintempTxt"
             android:layout_marginStart="27dp"
             android:layout_marginTop="3dp"
             android:fontFamily="sans-serif"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/conditionsTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/maxtempTxt"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/maxtempTxt"
             android:layout_marginStart="27dp"
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="28sp" />
+            android:textSize="28sp"/>
 
         <TextView
             android:id="@+id/locationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/conditionsTxt"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/conditionsTxt"
             android:layout_marginStart="27dp"
             android:layout_marginTop="3dp"
             android:fontFamily="sans-serif"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
         <ImageView
             android:id="@+id/weardefault"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_below="@+id/conditionsTxt"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_below="@+id/locationText"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="74dp"
-            app:srcCompat="@android:color/background_light" />
+            app:srcCompat="@android:color/background_light"/>
 
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="62dp"
             android:layout_height="61dp"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="16dp"
+            android:layout_alignParentTop="true"
             android:layout_marginEnd="26dp"
-            app:srcCompat="@android:color/background_light" />
+            android:layout_marginTop="16dp"
+            app:srcCompat="@android:color/background_light"/>
 
         <Switch
             android:id="@+id/notificationswitch"
@@ -95,18 +93,43 @@
             android:layout_alignBaseline="@+id/refreshbtn"
             android:layout_alignParentStart="true"
             android:layout_marginStart="42dp"
-            android:text="Notifications" />
+            android:text="Notifications"/>
 
         <Button
             android:id="@+id/refreshbtn"
             android:layout_width="127dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="36dp"
-            android:layout_marginBottom="46dp"
+            android:layout_alignEnd="@+id/weatherIcon"
+            android:layout_below="@+id/bottomimg"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="32dp"
             android:onClick="startRefresh"
-            android:text="Refresh" />
+            android:text="Refresh"/>
+
+        <ImageView
+            android:id="@+id/bottomimg"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_alignStart="@+id/weardefault"
+            android:layout_below="@+id/weardefault"
+            app:srcCompat="@color/white"/>
+
+        <ImageView
+            android:id="@+id/umbrellaimg"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignBottom="@+id/bottomimg"
+            android:layout_alignStart="@+id/locationText"
+            android:layout_marginBottom="81dp"
+            app:srcCompat="@color/white"/>
+
+        <ImageView
+            android:id="@+id/extrasimg"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignEnd="@+id/weatherIcon"
+            android:layout_alignTop="@+id/umbrellaimg"
+            app:srcCompat="@color/white"/>
 
 
     </RelativeLayout>
