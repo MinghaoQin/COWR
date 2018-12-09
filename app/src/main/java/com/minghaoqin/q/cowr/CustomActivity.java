@@ -66,7 +66,7 @@ public class CustomActivity extends AppCompatActivity {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
 
             mphoto = (Bitmap) data.getExtras().get("data");
-           // mimageView.setRotation(90);
+            // mimageView.setRotation(90);
             mimageView.setImageBitmap(mphoto);
 
 
@@ -75,11 +75,28 @@ public class CustomActivity extends AppCompatActivity {
     }
     boolean checked;
     int hello;
+    int hello2;
+    boolean checked2;
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         checked = ((RadioButton) view).isChecked();
         hello = view.getId();
         // Check which radio button was clicked
+
+    }
+    String clothtype = "";
+    public void RadioClick(View view) {
+        // Is the button now checked?
+        checked2 = ((RadioButton) view).isChecked();
+        hello2 = view.getId();
+        // Check which radio button was clicked
+        if (hello2 == R.id.top){
+            clothtype = "top";
+            Toast.makeText(getApplicationContext(),"Please take a picture to add it.", Toast.LENGTH_SHORT).show();
+        } else if (hello2 == R.id.bottom) {
+            Toast.makeText(getApplicationContext(), "Please.", Toast.LENGTH_SHORT).show();
+            clothtype = "bottom";
+        }
 
     }
 
@@ -96,19 +113,19 @@ public class CustomActivity extends AppCompatActivity {
             case R.id.warm:
                 if (checked)
                     Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT).show();
-                myDb.insert(byteArray,"warm");
+                myDb.insert(byteArray,"warm",clothtype);
                 break;
             case R.id.hot:
                 if (checked)
-                    myDb.insert(byteArray,"hot");
+                    myDb.insert(byteArray,"hot",clothtype);
                 break;
             case R.id.freezing:
                 if (checked)
-                    myDb.insert(byteArray,"freezing");
+                    myDb.insert(byteArray,"freezing",clothtype);
                 break;
             case R.id.cold:
                 if (checked)
-                    myDb.insert(byteArray,"cold");
+                    myDb.insert(byteArray,"cold",clothtype);
                 break;
             default:
                 Toast.makeText(getApplicationContext(),"Please take select the temperature preference.", Toast.LENGTH_SHORT).show();
@@ -126,3 +143,4 @@ public class CustomActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+

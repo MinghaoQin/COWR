@@ -7,6 +7,8 @@
     <string name="hot">Madd Hot</string>
     <string name="warm">Perfect Weather</string>
     <string name="cold">Colddd</string>
+    <string name="top">Top</string>
+    <string name="bottom">Bottom</string>
     <string name="freezing">Super Chillly</string>
     <string name="title_activity_listview">listview</string>
     <string name="_100_f"><![CDATA[>100°F]]></string>

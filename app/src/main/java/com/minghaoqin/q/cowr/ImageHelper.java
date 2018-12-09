@@ -17,7 +17,7 @@ public class ImageHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
-        db.execSQL("CREATE TABLE Image(_id INTEGER PRIMARY KEY AUTOINCREMENT,imageblob BLOB, type TEXT);");
+        db.execSQL("CREATE TABLE Image(_id INTEGER PRIMARY KEY AUTOINCREMENT,imageblob BLOB, type TEXT, topbot TEXT);");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -25,15 +25,16 @@ public class ImageHelper extends SQLiteOpenHelper {
     public Cursor getAll() {
         return(getReadableDatabase().rawQuery("SELECT imageblob,type FROM Image",null));
     }
-    public Cursor getRec(String weather){
-        return(getReadableDatabase().rawQuery("SELECT imageblob FROM Image WHERE type = ?",new String[] { String.valueOf(weather) }));
+    public Cursor getRec(String weather, String topbot){
+        return(getReadableDatabase().rawQuery("SELECT imageblob FROM Image WHERE type = ? AND topbot = ?",new String[] { String.valueOf(weather),String.valueOf(topbot)  }));
     }
-    public void insert(byte[] bytes, String type)
+    public void insert(byte[] bytes, String type, String topbot)
     {
         ContentValues cv=new ContentValues();
 
         cv.put("imageblob",bytes);
         cv.put("type",type);
+        cv.put("topbot",topbot);
         Log.e("inserted", "inserted");
         getWritableDatabase().insert("Image",null,cv);
 

@@ -227,7 +227,10 @@ public class DefaultActivity extends AppCompatActivity {
 
         }
         final ArrayList<Bitmap> bitmap = new ArrayList<Bitmap>();
-        Cursor res = myDb.getRec(weather);
+        final ArrayList<Bitmap> bitmap2 = new ArrayList<Bitmap>();
+
+        Cursor res = myDb.getRec(weather,"top");
+        Cursor res2 = myDb.getRec(weather,"bottom");
         int i = 0;
         Random r = new Random();
 
@@ -243,6 +246,24 @@ public class DefaultActivity extends AppCompatActivity {
             }
             final int ll = r.nextInt(i );
             wear.setImageBitmap(bitmap.get(ll));
+        }
+
+        int j = 0;
+        if (res2.getCount() > 0) {
+
+            while (res2.moveToNext()) {
+                byte[] data2 = res2.getBlob(res2.getColumnIndex("imageblob"));
+                ByteArrayInputStream imageStream2 = new ByteArrayInputStream(data2);
+                Bitmap image2 = BitmapFactory.decodeStream(imageStream2);
+                bitmap2.add(image2);
+                j++;
+
+            }
+            final int ll = r.nextInt(j );
+            wearbottom.setImageBitmap(bitmap2.get(ll));
+
+
+
         }
     }
     public void toastMsg(String msg) {
