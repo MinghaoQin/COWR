@@ -30,6 +30,7 @@ public class CustomActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 1888;
 
     ImageView mimageView;
+    Button homebtn;
 
 
 
@@ -43,6 +44,7 @@ public class CustomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_custom);
 
 
+        homebtn=findViewById(R.id.homebtn);
         mimageView = (ImageView) this.findViewById(R.id.image_from_camera);
 
         Button button = (Button) this.findViewById(R.id.take_image_from_camera);
@@ -92,9 +94,9 @@ public class CustomActivity extends AppCompatActivity {
         // Check which radio button was clicked
         if (hello2 == R.id.top){
             clothtype = "top";
-            Toast.makeText(getApplicationContext(),"Please take a picture to add it.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"Please take a picture to add it.", Toast.LENGTH_SHORT).show();
         } else if (hello2 == R.id.bottom) {
-            Toast.makeText(getApplicationContext(), "Please.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "Please.", Toast.LENGTH_SHORT).show();
             clothtype = "bottom";
         }
 
@@ -111,28 +113,33 @@ public class CustomActivity extends AppCompatActivity {
         byte[] byteArray = stream.toByteArray();
         switch(hello) {
             case R.id.warm:
-                if (checked)
+                if (checked&&checked2)
                     Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT).show();
                 myDb.insert(byteArray,"warm",clothtype);
                 break;
             case R.id.hot:
-                if (checked)
+                if (checked&&checked2)
                     myDb.insert(byteArray,"hot",clothtype);
                 break;
             case R.id.freezing:
-                if (checked)
+                if (checked&&checked2)
                     myDb.insert(byteArray,"freezing",clothtype);
                 break;
             case R.id.cold:
-                if (checked)
+                if (checked&&checked2)
                     myDb.insert(byteArray,"cold",clothtype);
                 break;
             default:
-                Toast.makeText(getApplicationContext(),"Please take select the temperature preference.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Please select the temperature preference.", Toast.LENGTH_SHORT).show();
                 return;
 
 
         }
+        if (!checked2)
+        {                Toast.makeText(getApplicationContext(),"Please select the clothing type.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = getIntent();
         finish();
         startActivity(intent);
@@ -141,6 +148,10 @@ public class CustomActivity extends AppCompatActivity {
     public void MyClothes(View view){
         Intent intent = new Intent (CustomActivity.this, listview.class);
         startActivity(intent);
+    }
+    public void back(View view) {
+        Intent bintent = new Intent(getApplicationContext(), DefaultActivity.class);
+        startActivity(bintent);
     }
 }
 

@@ -105,17 +105,43 @@ public class DefaultActivity extends AppCompatActivity {
             }
         });
 
+
         notificationsw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b)
                 {
+                    Preference.getInstance().writePreferenceInt("Notificationsw", 1); //set default temp settings
                     Intent serviceIntent = new Intent(getApplicationContext(),notificationService.class);
                     startService(serviceIntent);
                 }
+                else
+                {
+                    Preference.getInstance().writePreferenceInt("Notificationsw", 0); //set default temp settings
+                    stopService(new Intent(getApplicationContext(), notificationService.class));
+
+
+
+                }
+
             }
         });
 
+
+        if(((Preference.getInstance().getPreferenceInt("Notificationsw")))==1)
+        {
+            notificationsw.setChecked(true);
+        }
+        else
+        {
+            notificationsw.setChecked(false);
+        }
+
+        if(notificationsw.isChecked())
+        {
+            Intent serviceIntent = new Intent(getApplicationContext(),notificationService.class);
+            startService(serviceIntent);
+        }
         weathimg = (ImageView)findViewById(R.id.weatherIcon);
         wear= findViewById(R.id.weardefault);
         queue = Volley.newRequestQueue(this);
@@ -218,6 +244,8 @@ public class DefaultActivity extends AppCompatActivity {
             weather = "cold";
             wear.setImageResource(R.drawable.hoodie);//set default value
             wearbottom.setImageResource(R.drawable.jeans);
+            extra.setImageResource(R.drawable.winterextras);
+
 
 
         } else if (temp >= warm & temp < hot) {

@@ -15,16 +15,17 @@
 
         android:id="@+id/take_image_from_camera"
 
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
 
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
 
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="10dp"
 
+        android:background="@drawable/cam"
         android:onClick="takeImageFromCamera"
-        android:text="Take Photo From Camera" />
+        />
 
 
     <ImageView
@@ -47,14 +48,15 @@
 
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="155dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="107dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+                android:layout_width="wrap_content"
+                android:layout_height="155dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="68dp"
+                android:layout_marginBottom="107dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:id="@+id/radioGroup">
 
         <RadioButton
             android:id="@+id/warm"
@@ -86,16 +88,17 @@
     </RadioGroup>
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="118dp"
-        android:layout_height="155dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="237dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="110dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+                android:layout_width="118dp"
+                android:layout_height="155dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="237dp"
+                android:layout_marginEnd="29dp"
+                android:layout_marginBottom="110dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:id="@+id/radioGroup2">
 
         <RadioButton
             android:id="@+id/top"
@@ -124,12 +127,22 @@
 
     <Button
         android:id="@+id/myclothes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:onClick="MyClothes"
-        android:text="My Clothes" />
+        android:text="My Clothes"/>
+
+    <Button
+        android:id="@+id/homebtn"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="back"
+        android:background="@drawable/home"
+        android:text="Button"/>
 
 
 </RelativeLayout>
