@@ -230,6 +230,7 @@ public class DefaultActivity extends AppCompatActivity {
         int warm = Preference.getInstance().getPreferenceInt("Warm");
         int hot = Preference.getInstance().getPreferenceInt("Hot");
         int temp = temp_min.intValue();
+        int temp2= temp_max.intValue();
         if (weather_condition=="Rain"||weather_condition=="Drizzle"||weather_condition=="Snow"||weather_condition=="Thunderstorm")
         {
             umbrella.setImageResource(R.drawable.umbrella);

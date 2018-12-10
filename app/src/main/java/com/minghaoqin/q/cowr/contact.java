@@ -6,6 +6,7 @@ public class contact {
 
     String _name;
     byte[] _image;
+    int _id;
 
     // Empty constructor
     public contact() {
@@ -13,14 +14,21 @@ public class contact {
     }
 
     // constructor
-    public contact( String name, byte[] image) {
+    public contact(int _id, String name, byte[] image) {
 
         this._name = name;
         this._image = image;
+        this._id= _id;
 
     }
 
+    public int get_id() {
+        return _id;
+    }
 
+    public void set_id(int _id) {
+        this._id = _id;
+    }
 
     // getting name
     public String getName() {

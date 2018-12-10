@@ -3,10 +3,22 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
+
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.55" >
+        android:layout_weight="0.9"
+        android:longClickable="true"
+        >
     </ListView>
+
+    <Button
+        android:id="@+id/listhomebtn"
+        android:layout_width="70dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.1"
+        android:background="@drawable/home"
+        android:onClick="home"/>
 </LinearLayout>

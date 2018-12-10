@@ -127,12 +127,12 @@
 
     <Button
         android:id="@+id/myclothes"
-        android:layout_width="120dp"
+        android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="MyClothes"
-        android:text="My Clothes"/>
+        android:background="@drawable/myclothes"
+        android:onClick="MyClothes"/>
 
     <Button
         android:id="@+id/homebtn"

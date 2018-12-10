@@ -70,8 +70,8 @@
 
         <ImageView
             android:id="@+id/weardefault"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="150dp"
+            android:layout_height="135dp"
             android:layout_below="@+id/locationText"
             android:layout_centerHorizontal="true"
             app:srcCompat="@android:color/background_light"/>
@@ -97,19 +97,20 @@
 
         <Button
             android:id="@+id/refreshbtn"
-            android:layout_width="127dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/weatherIcon"
             android:layout_below="@+id/bottomimg"
             android:layout_marginEnd="14dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/refresh"
             android:onClick="startRefresh"
-            android:text="Refresh"/>
+            />
 
         <ImageView
             android:id="@+id/bottomimg"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="150dp"
+            android:layout_height="135dp"
             android:layout_alignStart="@+id/weardefault"
             android:layout_below="@+id/weardefault"
             app:srcCompat="@color/white"/>

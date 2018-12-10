@@ -114,7 +114,7 @@ public class CustomActivity extends AppCompatActivity {
         switch(hello) {
             case R.id.warm:
                 if (checked&&checked2)
-                    Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(),"", Toast.LENGTH_SHORT).show();
                 myDb.insert(byteArray,"warm",clothtype);
                 break;
             case R.id.hot:

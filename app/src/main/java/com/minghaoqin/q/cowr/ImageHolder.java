@@ -7,4 +7,5 @@ class ImageHolder
 {
     ImageView imgIcon;
     TextView txtTitle;
+    TextView txtid;
 }

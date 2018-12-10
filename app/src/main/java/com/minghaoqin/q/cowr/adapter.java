@@ -36,6 +36,7 @@ public class adapter extends ArrayAdapter<contact>{
             holder = new ImageHolder();
             holder.txtTitle = (TextView)row.findViewById(R.id.txtTitle);
             holder.imgIcon = (ImageView)row.findViewById(R.id.imgIcon);
+             holder.txtid=row.findViewById(R.id.txtid);
             row.setTag(holder);
         }
         else
@@ -44,6 +45,7 @@ public class adapter extends ArrayAdapter<contact>{
         }
         contact picture = data.get(position);
         holder.txtTitle.setText(picture ._name);
+        holder.txtid.setText(String.valueOf(picture._id));
 //convert byte to bitmap take from contact class
         byte[] outImage=picture._image;
         ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);

@@ -5,7 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.Image;
 import android.util.Log;
+
+import java.sql.Blob;
 
 public class ImageHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="abhi.db";
@@ -23,7 +26,7 @@ public class ImageHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
     public Cursor getAll() {
-        return(getReadableDatabase().rawQuery("SELECT imageblob,type FROM Image",null));
+        return(getReadableDatabase().rawQuery("SELECT _id,imageblob,type FROM Image",null));
     }
     public Cursor getRec(String weather, String topbot){
         return(getReadableDatabase().rawQuery("SELECT imageblob FROM Image WHERE type = ? AND topbot = ?",new String[] { String.valueOf(weather),String.valueOf(topbot)  }));
@@ -42,6 +45,11 @@ public class ImageHelper extends SQLiteOpenHelper {
     public byte[] getImage(Cursor c)
     {
         return(c.getBlob(1));
+    }
+    public void delete(int id)
+    {
+        //bytes = c.getBlob(c.getColumnIndex("imageblob"));
+        getWritableDatabase().delete("Image","_id=?",new String[]{String.valueOf(id)});
     }
 
 }

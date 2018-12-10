@@ -8,22 +8,54 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/defaultbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="startDefault"
-        android:text="Default"/>
+        android:id="@+id/custombtn"
+        android:layout_width="100dp"
+
+        android:layout_height="100dp"
+        android:layout_above="@+id/defaultbtn"
+        android:layout_alignStart="@+id/defaultbtn"
+        android:layout_marginBottom="59dp"
+        android:background="@drawable/setup"
+        android:onClick="startCustom"/>
 
     <Button
-        android:id="@+id/custombtn"
+        android:id="@+id/defaultbtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/home"
+        android:onClick="startDefault"
+        />
+
+
+
+    <TextView
+        android:id="@+id/titletxtv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/defaultbtn"
-        android:layout_below="@+id/defaultbtn"
-        android:layout_marginTop="35dp"
-        android:onClick="startCustom"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Welcome"
+        android:textSize="70sp"/>
 
-        android:text="Custom"/>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titletxtv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="Setup"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/defaultbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"
+        android:text="Home"/>
 </android.widget.RelativeLayout>
